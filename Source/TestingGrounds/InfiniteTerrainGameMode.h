@@ -18,14 +18,17 @@ public:
 
 	AInfiniteTerrainGameMode();
 
-	UFUNCTION(BlueprintCallable, Category = "Bounds Pool")
-	void PopulateBoundsVolumePool();
+	UFUNCTION(BlueprintCallable, Category = "Pool")
+	void PopulateActorPool();
 
 protected:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pool")
+	class UActorPool* ActorPool;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pool")
 	class UActorPool* NavMeshBoundsVolumePool;
 	
 private:
-	void AddToPool(class ANavMeshBoundsVolume *VolumeToAdd);
+	void AddActorToPool(class AActor *ActorToAdd);
 };
